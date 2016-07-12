@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<#include "/include/public.html" />	
+</head>
+<body>
+	
+			<div class="container">
+			<!--  <h1 class="page=header">表单</h1>  -->
+			<form class="horizontal" method="post" action="/role/add">
+			<fieldset>
+			<legend>新增职位</legend>
+			
+			<div class="control-group">
+			<label class="control-lable" for="name">职位名称</label>
+			<div class="controls">
+			<input id="name" name="name" type="text" class="form-control">
+			
+			</div>
+			</div>
+			
+			<div class="control-group">
+			<label class="control-lable" for="description">职位描述 </label>
+			<div class="controls">
+			<input id="description" name="description" type="text" class="form-control">
+			</div>
+			</div>
+			</fieldset>
+			
+			<div class="form-actions" >
+			<button type="submit" class="btn btn-primary">添加 </button>
+			</div>
+			</form>
+		</div>
+		
+	
+
+</body>
+</html>

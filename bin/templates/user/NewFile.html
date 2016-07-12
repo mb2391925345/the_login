@@ -1,0 +1,15 @@
+div class="control-group">
+					<label class="control-lable" for="departments">部门</label>
+					<div class="controls">
+						<select id="departments" name="department"
+							value="${user.department.id}"> <#list departments as department>
+							<#if user.department.id==department.id>
+							<option value="${department.id}" selected >${department.departmentName}</option>
+							<#else>
+							<option value="${department.id}" >${department.departmentName}</option>
+							</#if>
+							 </#list>
+						</select>
+						<p class="help-block">请选择部门</p>
+					</div>
+				</div>

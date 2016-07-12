@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<#include "/include/public.html" />	
+</head>
+<body>
+
+  
+	<#if user??><h1>"你好"${user.loginName}!</h1></#if>
+
+	<table class="table table-bordered table-hover table-striped table-condensed">
+		<thead>
+			<tr>
+				<th>登录名</th>
+				<th>姓名</th>
+				<th>所属部门</th>
+				<th>职位</th>
+				<th>删除</th>
+				<th>修改</th>
+			</tr>
+		</thead>
+		<tbody>
+			<#list page.content as user>
+			<tr>
+				<td>${user.loginName}</td>
+				<td>${user.name}</td>
+				<#if user.department??><td>${user.department.departmentName}</td><#else><td></td></#if>
+				<#if user.roles?size gt 0><td><#list user.roles as role>${role.name}</#list></td><#else><td></td> </#if>
+				<td><a href="/user/delete?id=${user.id}">删除</a></td>
+				<td><a href="/user/updateUI?id=${user.id}">修改</a></td>
+			</tr>
+			</#list>
+           <tr>
+				<td><a href="/user/list?pageNo=0">首页</a></td>
+				 <td>共${page.totalPages}页</td>
+				<td> 当前第${page.number+1}页</td>
+				<#if page.number gte 1 ><td><a href="/user/list?pageNo=${page.number-1}">上一页</a></td></#if>
+				<#if page.number lt (page.totalPages-1)><td><a href="/user/list?pageNo=${page.number+1}">下一页</a></td></#if>
+				<td><a href="/user/list?pageNo=${page.totalPages-1}">末页</a></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<a href="/department/list">查看部门信息</a>
+	<br>
+	<a href="/department/addUI">新增部门</a>
+	<br>
+	<a href="/role/list">查看职位信息</a>
+	<br>
+	<a href="/role/addUI">新增职位</a>
+	<br>
+
+
+
+
+</body>
+</html>
